@@ -23,18 +23,20 @@ const inst= name=> state=>
 
   const el=
   (
-    <div className={`${style.menuPlaceholder}`} onClick={menuToggle}>
-      <i className="fas fa-align-justify"></i>
-      <Modal name='modal1' style={{top: '47px', right: '58px'}}>
-        {
-          state.foo.children.map
-          (
-            item=>
-            <div>{item}</div>
-          )
-        }
-      </Modal>
-    </div>
+      <div className={`${style.menuPlaceholder}`}>
+        <div className={`${style.menuIcon}`} onClick={menuToggle}>
+          <i className="fas fa-align-justify"></i>
+        </div>
+        <Modal name='modal1' style={{top: '47px', right: '58px'}}>
+          {
+            state.foo.children.map
+            (
+              (item, key)=>
+              <div key={key}><i className="fas fa-angle-right"></i> {item}</div>
+            )
+          }
+        </Modal>
+      </div>
   )
 
   return el
