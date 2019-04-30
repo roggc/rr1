@@ -1,3 +1,3 @@
-## react-redux-pro-1
+## rr1
 
-evolution of react-redux-pro
+evolution of react-redux-pro-1
