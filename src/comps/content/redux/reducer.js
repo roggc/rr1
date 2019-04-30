@@ -17,6 +17,7 @@ export default name=> (val=
         ...val,
         children: act.val
       }
+      return val
     default:
       return val
   }

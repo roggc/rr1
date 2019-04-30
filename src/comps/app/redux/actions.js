@@ -9,3 +9,19 @@ export const appSetShow= name=> val=>
     val: val
   }
 )
+
+export const appSetChildren= name=> val=>
+(
+  {
+    type: types.APP_SET_CHILDREN_+name,
+    val: val
+  }
+)
+
+export const appSetChildren0= name=> val=>
+(
+  {
+    type: types.APP_SET_CHILDREN0_+name,
+    val: val
+  }
+)

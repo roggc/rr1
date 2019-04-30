@@ -4,36 +4,29 @@ import React from 'react'
 import withState from '../../../hocs/state'
 import reducer from '../redux/reducer'
 import style from '../style/header.css'
-import Menu from '../../modal/render/modal'
-import {modalToggleShow} from '../../modal/redux/actions'
+import Menu from '../../menu/render/menu'
+import store from '../../../redux/store'
+import {headerSetTitle, headerSetChildren} from '../redux/actions'
 
-const inst= name=> state=>
+const init= name=> init=>
 {
-  const modalToggle= ()=>
-  {
-    state.dispatch(modalToggleShow('menu1')())
-  }
-
-  const el=
-  (
-    state.foo.show&&
-    <div className={`${style.headerFlexRow} ${style.headerPlaceholder}`}>
-      <div className={`${style.headerFlexGrow} ${style.headerFlexColumn}`}>
-        <div className={`${style.headerFlexShrink}`}>
-          React app ...
-        </div>
-      </div>
-      <div className={`${style.headerPlaceholder2}`} onClick={modalToggle}>
-        <i className="fas fa-align-justify"></i>
-        <Menu name='menu1' style={{top: '47px', right: '58px'}}>
-          <div>jsdfj...</div>
-        </Menu>
-      </div>
-    </div>
-  )
-
-  return el
+  init.title&& store.dispatch(headerSetTitle(name)(init.title))
+  init.children&& store.dispatch(headerSetChildren(name)(init.children))
 }
 
+const inst= name=> state=>
+(
+  state.foo.show&&
+  <div className={`${style.headerFlexRow} ${style.headerPlaceholder}`}>
+    <div className={`${style.headerFlexGrow} ${style.headerFlexColumn}`}>
+      <div className={`${style.headerFlexShrink}`}>
+        {state.foo.title}
+      </div>
+    </div>
+    <Menu name='menu1'>
+      {state.foo.children}
+    </Menu>
+  </div>
+)
 
-export default withState()(inst)(reducer)
+export default withState(init)(inst)(reducer)
