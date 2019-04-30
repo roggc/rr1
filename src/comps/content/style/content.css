@@ -1,0 +1,22 @@
+.contentPlaceholder
+{
+  border-radius: 5px;
+  background-color: grey;
+  margin: 5px;
+  padding: 10px;
+  color: white;
+  height: 300px;
+}
+
+.contentFlexColumn1
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contentFlexRow1
+{
+  display: flex;
+  justify-content: center;
+}

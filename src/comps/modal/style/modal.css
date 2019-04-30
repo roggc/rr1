@@ -1,0 +1,8 @@
+.modalPlaceholder
+{
+  float: left;
+  position: absolute;
+  background-color: inherit;
+  border-radius: inherit;
+  padding: inherit;
+}
