@@ -51,7 +51,9 @@ render
           nppcpp ...
         </About>
       </Content>
-      <Footer name='footer1'/>
+      <Footer name='footer1'>
+        &copy; 2019 React corp dev
+      </Footer>
     </App>
   </Provider>,
   document.getElementById('root')

@@ -19,7 +19,11 @@ const inst= name=> state=>
 {
   const menuToggle= ()=> state.dispatch(modalToggleShow('modal1')())
 
-  const menuClick= key=> clicked=> ()=> state.dispatch(menuSetItem(name)(key)(clicked))
+  const menuClick= key=> clicked=> ()=>
+  {
+    menuToggle()
+    state.dispatch(menuSetItem(name)(key)(clicked))
+  }
 
   const el=
   (
