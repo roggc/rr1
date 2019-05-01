@@ -31,7 +31,7 @@ const inst= name=> state=>
   const menuClick= key=> clicked=> ()=>
   {
     menuToggle()
-    state.dispatch(menuSetItem(name)(key)(clicked))
+    state.foo.item!== key&& state.dispatch(menuSetItem(name)(key)(clicked))
   }
 
   const el=
