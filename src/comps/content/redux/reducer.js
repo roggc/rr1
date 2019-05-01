@@ -11,7 +11,7 @@ export default name=> (val=
 {
   switch (act.type)
   {
-    case types.CONTENT_SET_+name:
+    case types.CONTENT_SET_CHILDREN_+name:
       val=
       {
         ...val,

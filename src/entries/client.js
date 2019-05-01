@@ -10,9 +10,13 @@ import Header from '../comps/header/render/header'
 import Content from '../comps/content/render/content'
 import Footer from '../comps/footer/render/footer'
 import Home from '../comps/home/render/home'
+import About from '../comps/about/render/about'
 import SayHello from '../comps/sayHello/render/sayHello'
 import Say from '../comps/say/render/say'
 import Posts from '../comps/posts/render/posts'
+import {homeSetShow} from '../comps/home/redux/actions'
+import {aboutSetShow} from '../comps/about/redux/actions'
+import {menuSetItem} from '../comps/menu/redux/actions'
 
 render
 (
@@ -29,15 +33,23 @@ render
     }>
       <Header name='header1' title={'React app ...'}>
         {
-          [
-            'item1',
-            'item2',
-            'item3'
-          ]
+          {
+            name: 'content1',
+            items:
+            [
+              {text:'home',name:'home1',func:homeSetShow},
+              {text:'about',name:'about1',func:aboutSetShow},
+            ]
+          }
         }
       </Header>
       <Content name='content1'>
-        <Home name='home1'/>
+        <Home name='home1'>
+          hello ...
+        </Home>
+        <About name='about1'>
+          nppcpp ...
+        </About>
       </Content>
       <Footer name='footer1'/>
     </App>
@@ -46,3 +58,14 @@ render
 )
 
 store.dispatch(start())
+
+window.addEventListener('popstate', e=>
+{
+  const state= store.getState()
+
+  Object.keys(state.comps).forEach(key=>
+  {
+    const comp = state.comps[key]
+    comp.route&& comp.name&& store.dispatch(menuSetItem(comp.name)(e.state)())
+  })
+})

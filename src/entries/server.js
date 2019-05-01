@@ -6,5 +6,6 @@ const render= (req,res,next)=>fs.readFile(path.resolve('./out/client/index.html'
 const app = express()
 const port = process.env.PORT || 3000
 app.use(express.static('out/client'))
+app.use(render)
 app.listen(port)
 console.log(`listening on localhost:${port} ...`)

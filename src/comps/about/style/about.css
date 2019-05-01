@@ -1,9 +1,9 @@
-.homePlaceholder
+.aboutPlaceholder
 {
   font-size: 1.9em;
 }
 
-@keyframes homeBounce
+@keyframes aboutBounce
 {
   25% {transform: scale(1.5);}
   50% {transform: scale(1);}
@@ -11,21 +11,21 @@
   100% {transform: scale(1);}
 }
 
-.homeBounce
+.aboutBounce
 {
-  animation-name: homeBounce;
+  animation-name: aboutBounce;
   animation-duration: 1s;
   animation-delay:0.0s;
 }
 
-@keyframes homeFade
+@keyframes aboutFade
 {
   from {opacity:0}
   to {opacity:1}
 }
 
-.homeFade
+.aboutFade
 {
-  animation-name: homeFade;
+  animation-name: aboutFade;
   animation-duration: 1s;
 }

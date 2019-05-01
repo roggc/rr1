@@ -5,11 +5,11 @@ import withState from '../../../hocs/state'
 import reducer from '../redux/reducer'
 import style from '../style/content.css'
 import store from '../../../redux/store'
-import {contentSet} from '../redux/actions'
+import {contentSetChildren} from '../redux/actions'
 
 const init= name=> init=>
 {
-  init.children&& store.dispatch(contentSet(name)(init.children))
+  init.children&& store.dispatch(contentSetChildren(name)(init.children))
 }
 
 const inst= name=> state=>

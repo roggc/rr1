@@ -23,7 +23,7 @@ const inst= name=> state=>
         {state.foo.title}
       </div>
     </div>
-    <Menu name='menu1'>
+    <Menu name='menu1' route={true}>
       {state.foo.children}
     </Menu>
   </div>
