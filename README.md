@@ -7,5 +7,3 @@ making components (instances) more reusable.
 implementing routing.
 
 next: ssr ...
-
-[app](https://roggc-rr1.herokuapp.com)
