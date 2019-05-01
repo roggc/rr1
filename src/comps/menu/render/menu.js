@@ -1,13 +1,14 @@
 __devMode__&& console.log('src/comps/menu/render/menu')
 
-import React from 'react'
+import React, {useRef} from 'react'
 import withStatus from '../../../hocs/state'
 import reducer from '../redux/reducer'
 import {menuSetChildren, menuSetRoute, menuSetItem} from '../redux/actions'
 import store from '../../../redux/store'
 import Modal from '../../modal/render/modal'
 import style from '../style/menu.css'
-import {modalToggleShow} from '../../modal/redux/actions'
+import {modalToggleShow, modalSetShow} from '../../modal/redux/actions'
+import {useClickOutside} from '../../../hooks/useClickOutside';
 
 const init= name=> init=>
 {
@@ -17,6 +18,14 @@ const init= name=> init=>
 
 const inst= name=> state=>
 {
+  const innerRef = useRef(null)
+
+  useClickOutside
+  (
+    (e) => state.dispatch(modalSetShow('modal1')(false)),
+    innerRef
+  )
+
   const menuToggle= ()=> state.dispatch(modalToggleShow('modal1')())
 
   const menuClick= key=> clicked=> ()=>
@@ -27,7 +36,7 @@ const inst= name=> state=>
 
   const el=
   (
-      <div className={`${style.menuPlaceholder}`}>
+      <div className={`${style.menuPlaceholder}`} ref={innerRef}>
         <div className={`${style.menuIcon}`} onClick={menuToggle}>
           <i className="fas fa-align-justify"></i>
         </div>
